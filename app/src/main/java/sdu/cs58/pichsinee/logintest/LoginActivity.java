@@ -25,6 +25,7 @@ public class LoginActivity extends AppCompatActivity {
         passwordEditText = findViewById(R.id.txtPassword);
         loginButton = findViewById(R.id.btnLogin);
 
+
         //สั่งให้ปุ่มหลักว่า user คลิกที่ปุ่ม  Login
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -34,6 +35,11 @@ public class LoginActivity extends AppCompatActivity {
                 nameString = nameEditText.getText().toString().trim();
                 userString = usernameEditText.getText().toString().trim();
                 pasaString = passwordEditText.getText().toString().trim();
+
+                //ตวดสอบข้าว่าง
+                if ((nameEditText.length()==0)||(userString.length()==0)||(pasaString.length()==0)) {
+                    Toast.makeText(getApplicationContext(),"กรุณาใส่ข้อมูลให้คบทุกช้อง",Toast.LENGTH_LONG).show();
+                }
 
                 //ตรวดสอบการ Login
                 if ((userString.equals("admin")) && (pasaString.equals("1234"))) {
